@@ -66,7 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    
     const canvas = document.getElementById('ai-canvas');
     const ctx = canvas.getContext('2d');
     let animationFrameId;
@@ -175,3 +174,4 @@ document.addEventListener('DOMContentLoaded', () => {
     initParticles();
     animateCanvas();
 });
+
