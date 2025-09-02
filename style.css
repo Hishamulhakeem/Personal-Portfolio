@@ -321,17 +321,17 @@ h2, h3, h4, h5, h6 {
     border-radius: 10px;
 }
 
-.about-grid {
+/* New wrapper for about content to control flow */
+.about-content-wrapper {
     display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center items horizontally */
+    gap: 40px; /* Space between text and cards */
 }
 
 .about-text {
-    flex: 1;
-    min-width: 300px;
+    width: 100%; /* Take full width */
+    max-width: 800px; /* Limit width for readability */
     text-align: center;
 }
 
@@ -339,6 +339,45 @@ h2, h3, h4, h5, h6 {
     margin-bottom: 15px;
     font-size: 1.1rem;
 }
+
+/* About Cards */
+.about-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%; /* Take full width to allow centering of cards */
+}
+
+.about-card {
+    background-color: var(--card-background);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow-light);
+    text-align: center;
+    flex: 1;
+    min-width: 180px;
+    max-width: 220px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--box-shadow-hover);
+}
+
+.about-card i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.about-card h3 {
+    font-size: 1.2rem;
+    color: var(--heading-color);
+    margin: 0;
+}
+
 
 .education-section {
     padding: 100px 0;
@@ -689,12 +728,29 @@ body.dark-mode .project-details {
     font-size: 1.5rem;
     margin-bottom: 5px;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    display: flex; /* Added for icon alignment */
+    align-items: center; /* Added for icon alignment */
+    justify-content: center; /* Added for icon alignment */
+    gap: 10px; /* Space between text and icon */
 }
 
 .experience-overlay p {
     font-size: 0.95rem;
     color: rgba(255, 255, 255, 0.8);
 }
+
+.role-icon {
+    width: 24px; /* Adjust size as needed */
+    height: 24px; /* Adjust size as needed */
+    vertical-align: middle;
+    margin-left: 5px; /* Space between text and icon */
+}
+
+.experience-dates {
+    font-weight: 600;
+    color: var(--primary-color); /* Or any color you prefer for dates */
+}
+
 
 @media (max-width: 768px) {
     .experience-grid {
@@ -801,6 +857,91 @@ body.dark-mode .project-details {
     margin: 50px auto;
     border-radius: 10px;
 }
+
+/* New styles for certifications section */
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    justify-content: center;
+}
+
+.certification-card {
+    background: var(--card-background);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--box-shadow-light);
+    transition: all 0.4s ease;
+    cursor: pointer;
+    border: 1px solid var(--border-color);
+    position: relative; /* Added for overlay positioning */
+}
+
+.certification-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.certification-card img {
+    width: 100%;
+    height: 200px; /* Adjust as needed */
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.certification-card:hover img {
+    transform: scale(1.05);
+}
+
+.certification-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+    color: white;
+    padding: 20px;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+    text-align: center;
+}
+
+.certification-card:hover .certification-overlay {
+    transform: translateY(0);
+}
+
+.certification-overlay h3 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.certification-overlay p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 768px) {
+    .certifications-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    }
+    .certification-card img {
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .certifications-grid {
+        grid-template-columns: 1fr;
+    }
+    .certification-card img {
+        height: 150px;
+    }
+}
+
 
 .hobbies-languages-section {
     padding: 80px 0;
@@ -1056,7 +1197,7 @@ body.dark-mode .project-details {
         flex-direction: column;
     }
 
-    .skills-grid, .projects-grid, .achievements-grid, .research-grid, .education-timeline, .hobbies-languages-grid {
+    .skills-grid, .projects-grid, .achievements-grid, .research-grid, .education-timeline, .hobbies-languages-grid, .certifications-grid { /* Added .certifications-grid */
         grid-template-columns: 1fr;
     }
 
@@ -1091,7 +1232,9 @@ body.dark-mode .project-details {
 .timeline-item1,
 .hobby-item,
 .language-item,
-.experience-card {
+.experience-card,
+.about-card,
+.certification-card { /* Added .certification-card here */
     position: relative;
     overflow: hidden;
     --glitter-opacity: 0;
@@ -1109,7 +1252,9 @@ body.dark-mode .research-item,
 body.dark-mode .timeline-item1,
 body.dark-mode .hobby-item,
 body.dark-mode .language-item,
-body.dark-mode .experience-card {
+body.dark-mode .experience-card,
+body.dark-mode .about-card,
+body.dark-mode .certification-card { /* Added .certification-card here */
     --glitter-color: var(--glitter-color-dark);
 }
 
@@ -1122,7 +1267,9 @@ body.dark-mode .experience-card {
 .timeline-item1:hover,
 .hobby-item:hover,
 .language-item:hover,
-.experience-card:hover {
+.experience-card:hover,
+.about-card:hover,
+.certification-card:hover { /* Added .certification-card here */
     transform: translateY(-5px);
     box-shadow: var(--box-shadow-hover);
     --glitter-opacity: 0.3;
@@ -1138,7 +1285,9 @@ body.dark-mode .experience-card {
 .timeline-item1::before,
 .hobby-item::before,
 .language-item::before,
-.experience-card::before {
+.experience-card::before,
+.about-card::before,
+.certification-card::before { /* Added .certification-card here */
     content: '';
     position: absolute;
     top: 0;
