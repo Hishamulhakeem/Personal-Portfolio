@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    document.querySelectorAll('.skill-category, .project-card, .achievement-card, .contact-info, .contact-form, .research-item, .timeline-item1, .hobby-item, .language-item, .experience-card').forEach(element => {
+    document.querySelectorAll('.skill-category, .project-card, .achievement-card, .contact-info, .contact-form, .research-item, .timeline-item1, .hobby-item, .language-item, .experience-card, .about-card, .certification-card').forEach(element => { // Added .certification-card
         element.addEventListener('mousemove', (e) => {
             const rect = element.getBoundingClientRect();
             const x = e.clientX - rect.left;
@@ -174,4 +174,3 @@ document.addEventListener('DOMContentLoaded', () => {
     initParticles();
     animateCanvas();
 });
-
