@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const typed = new Typed(".typed-text", {
-        strings: ["AI & ML Engineer", "Deep Learning Enthusiast", "Researcher", "Data Explorer", "Final-Year Engineering Student"],
+        strings: ["AI & ML Engineer", "Deep Learning Enthusiast","AI Operator", "Researcher", "Data Explorer", "Final-Year Engineering Student"],
         typeSpeed: 70,
         backSpeed: 40,
         loop: true,
@@ -174,3 +174,4 @@ document.addEventListener('DOMContentLoaded', () => {
     initParticles();
     animateCanvas();
 });
+
