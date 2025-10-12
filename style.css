@@ -257,8 +257,10 @@ input:checked + .slider:before {
 }
 
 .hero-image img {
-    max-width: 500px;
-    border-radius: 50%;
+     width: 500px;          
+    height: 500px;
+    object-fit: cover;      
+    border-radius: 55%;     
     box-shadow: var(--box-shadow-light);
 }
 
@@ -1301,3 +1303,4 @@ body.dark-mode .certification-card { /* Added .certification-card here */
     transition: opacity 0.3s ease, background 0.3s ease;
     mix-blend-mode: screen;
 }
+
